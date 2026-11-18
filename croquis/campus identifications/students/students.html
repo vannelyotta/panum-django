@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>campus identifications - login as student</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body data-role="student">
+    <main>
+        <section>
+            <fieldset>
+                <legend>campus identifications - student portal</legend>
+                <h1>login as student</h1>
+                <p>student administrative identification portal. if your student account is already created login is enabled, otherwise create a new student account.</p>
+                <nav class="role-nav">
+                    <a href="../index.html">all campus roles</a>
+                    <a href="../students.html" class="active">login as student</a>
+                    <a href="../teacher.html">login as teacher</a>
+                    <a href="../coordinator.html">login as coordinator</a>
+                </nav>
+            </fieldset>
+        </section>
+
+        <section class="hidden-section" data-element="session-section">
+            <fieldset class="active-panel">
+                <legend>active student session</legend>
+                <h2 data-element="session-summary">authenticated student</h2>
+                <p>your student identification account is verified and active.</p>
+                <ul class="consistency-list" data-element="session-details"></ul>
+                <button type="button" class="secondary-button" data-element="logout-btn">logout from session</button>
+            </fieldset>
+        </section>
+
+        <section>
+            <fieldset>
+                <legend>student account status check</legend>
+                <p data-element="account-count-text">checking registered student accounts...</p>
+
+                <fieldset class="nested-fieldset">
+                    <legend>check if student account is already created</legend>
+                    <label for="account-check-input">enter student email or student campus id (stu-...)</label>
+                    <input type="text" id="account-check-input" data-element="account-check-input" placeholder="example: stu-1001 or student@school.edu">
+                    <button type="button" class="secondary-button" data-element="account-check-btn">check student account</button>
+                    <button type="button" class="secondary-button" data-element="mode-login-btn">account already created (enable login)</button>
+                    <button type="button" class="secondary-button" data-element="mode-register-btn">no account yet (create account)</button>
+                </fieldset>
+
+                <output class="status-banner" data-element="account-status-banner">verifying student account availability...</output>
+            </fieldset>
+        </section>
+
+        <section class="forms-grid">
+            <section>
+                <fieldset data-element="login-fieldset">
+                    <legend>student login</legend>
+                    <h2>login as student</h2>
+                    <p>enabled when a student account is already created.</p>
+                    <form data-element="login-form" novalidate>
+                        <fieldset class="nested-fieldset">
+                            <legend>role</legend>
+                            <label for="login-role">selected role</label>
+                            <select id="login-role" data-element="login-role">
+                                <option value="student" selected>student</option>
+                                <option value="teacher">teacher</option>
+                                <option value="coordinator">coordinator</option>
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="nested-fieldset">
+                            <legend>student identification</legend>
+                            <label for="login-identifier">student email or campus id</label>
+                            <input type="text" id="login-identifier" data-element="login-identifier" placeholder="example: stu-1001 or student@school.edu" required>
+                            <small class="field-feedback" data-element="login-identifier-feedback">enter your registered student email or campus id.</small>
+                        </fieldset>
+
+                        <fieldset class="nested-fieldset">
+                            <legend>security</legend>
+                            <label for="login-password">student password</label>
+                            <input type="password" id="login-password" data-element="login-password" placeholder="enter your password" required>
+                            <small class="field-feedback" data-element="login-password-feedback">enter your student account password.</small>
+                        </fieldset>
+
+                        <button type="submit">login as student</button>
+                        <output class="status-banner" data-element="login-banner">ready for student login.</output>
+                    </form>
+                </fieldset>
+            </section>
+
+            <section>
+                <fieldset data-element="register-fieldset">
+                    <legend>create student account</legend>
+                    <h2>new student registration</h2>
+                    <p>enter accurate and consistent student information to create your account.</p>
+                    <form data-element="register-form" novalidate>
+                        <fieldset class="nested-fieldset">
+                            <legend>student identity</legend>
+                            <label for="reg-role">account role</label>
+                            <select id="reg-role" data-element="reg-role">
+                                <option value="student" selected>student</option>
+                                <option value="teacher">teacher</option>
+                                <option value="coordinator">coordinator</option>
+                            </select>
+
+                            <label for="reg-name">student full name (first and last name)</label>
+                            <input type="text" id="reg-name" data-element="reg-name" placeholder="example: daniel carter" required>
+                            <small class="field-feedback" data-element="reg-name-feedback">enter first and last name using letters only.</small>
+
+                            <label for="reg-campus-id">student campus id</label>
+                            <input type="text" id="reg-campus-id" data-element="reg-campus-id" placeholder="example: stu-1001" required>
+                            <small class="field-feedback" data-element="reg-campus-id-feedback">use student prefix stu and digits (example: stu-1001).</small>
+                        </fieldset>
+
+                        <fieldset class="nested-fieldset">
+                            <legend>personal and academic details</legend>
+                            <label for="reg-dob">date of birth</label>
+                            <input type="date" id="reg-dob" data-element="reg-dob" required>
+                            <small class="field-feedback" data-element="reg-dob-feedback">student age must be between 10 and 75 years.</small>
+
+                            <label for="reg-phone">student phone number</label>
+                            <input type="tel" id="reg-phone" data-element="reg-phone" placeholder="example: +1 234 567 8901" required>
+                            <small class="field-feedback" data-element="reg-phone-feedback">enter 8 to 15 digits.</small>
+
+                            <label for="reg-department" data-element="reg-department-label">student grade or level</label>
+                            <select id="reg-department" data-element="reg-department" required></select>
+                            <small class="field-feedback" data-element="reg-department-feedback">select your current student grade or level.</small>
+                        </fieldset>
+
+                        <fieldset class="nested-fieldset">
+                            <legend>email consistency verification</legend>
+                            <label for="reg-email">student email address</label>
+                            <input type="email" id="reg-email" data-element="reg-email" placeholder="example: student@school.edu" required>
+                            <small class="field-feedback" data-element="reg-email-feedback">enter a valid student email address.</small>
+
+                            <label for="reg-confirm-email">confirm student email address</label>
+                            <input type="email" id="reg-confirm-email" data-element="reg-confirm-email" placeholder="re-enter student email address" required>
+                            <small class="field-feedback" data-element="reg-confirm-email-feedback">must match your email address exactly.</small>
+                        </fieldset>
+
+                        <fieldset class="nested-fieldset">
+                            <legend>password consistency verification</legend>
+                            <label for="reg-password">password</label>
+                            <input type="password" id="reg-password" data-element="reg-password" placeholder="minimum 8 characters with letters and digits" required>
+                            <small class="field-feedback" data-element="reg-password-feedback">at least 8 characters including letters and numbers.</small>
+
+                            <label for="reg-confirm-password">confirm password</label>
+                            <input type="password" id="reg-confirm-password" data-element="reg-confirm-password" placeholder="re-enter password" required>
+                            <small class="field-feedback" data-element="reg-confirm-password-feedback">must match your password exactly.</small>
+                        </fieldset>
+
+                        <fieldset class="nested-fieldset">
+                            <legend>data accuracy and consistency checklist</legend>
+                            <ul class="consistency-list">
+                                <li data-rule="name">full name accuracy verified</li>
+                                <li data-rule="campus-id">campus id uniqueness and role prefix consistency</li>
+                                <li data-rule="age">date of birth and student age consistency</li>
+                                <li data-rule="email">email format and confirmation consistency</li>
+                                <li data-rule="password">password strength and confirmation consistency</li>
+                            </ul>
+                        </fieldset>
+
+                        <button type="submit">create student account and enable login</button>
+                        <output class="status-banner" data-element="register-banner">fill in the fields above to create your student account.</output>
+                    </form>
+                </fieldset>
+            </section>
+        </section>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

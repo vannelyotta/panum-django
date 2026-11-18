@@ -1,0 +1,343 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-transform: lowercase;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: aliceblue;
+    background-image: linear-gradient(135deg, rgba(240, 248, 255, 1), rgba(225, 238, 255, 0.9));
+    color: darkslategray;
+    min-height: 100vh;
+    padding: 32px 16px;
+    line-height: 1.5;
+    transition: background-color 0.4s ease, color 0.3s ease;
+}
+
+body[data-role="student"] {
+    background-image: linear-gradient(135deg, rgba(235, 245, 255, 1), rgba(210, 232, 255, 0.95));
+}
+
+body[data-role="teacher"] {
+    background-image: linear-gradient(135deg, rgba(236, 250, 245, 1), rgba(208, 240, 228, 0.95));
+}
+
+body[data-role="coordinator"] {
+    background-image: linear-gradient(135deg, rgba(245, 240, 255, 1), rgba(228, 218, 252, 0.95));
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    transition: all 0.35s ease;
+}
+
+section {
+    width: 100%;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+section.hidden-section {
+    display: none;
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+fieldset {
+    border: 2px solid rgba(70, 130, 180, 0.35);
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.94);
+    padding: 24px;
+    box-shadow: 0 10px 28px rgba(25, 25, 112, 0.08);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.3s ease, transform 0.25s ease;
+}
+
+fieldset:hover {
+    border-color: rgba(65, 105, 225, 0.55);
+    box-shadow: 0 14px 34px rgba(25, 25, 112, 0.12);
+}
+
+fieldset:disabled {
+    opacity: 0.52;
+    background-color: rgba(245, 245, 245, 0.85);
+    border-color: rgba(112, 128, 144, 0.3);
+    box-shadow: none;
+    transform: scale(0.99);
+}
+
+fieldset.nested-fieldset {
+    margin-top: 16px;
+    padding: 16px;
+    border-width: 1px;
+    border-color: rgba(112, 128, 144, 0.3);
+    background-color: rgba(248, 250, 252, 0.9);
+    box-shadow: none;
+}
+
+fieldset.nested-fieldset:hover {
+    border-color: rgba(65, 105, 225, 0.5);
+}
+
+fieldset.active-panel {
+    border-color: royalblue;
+    box-shadow: 0 12px 32px rgba(65, 105, 225, 0.18);
+}
+
+legend {
+    padding: 4px 14px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: midnightblue;
+    background-color: rgba(240, 248, 255, 0.95);
+    border: 1px solid rgba(65, 105, 225, 0.35);
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+h1 {
+    font-size: 1.65rem;
+    color: midnightblue;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: navy;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+p {
+    color: slategray;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+nav.role-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+nav.role-nav a {
+    text-decoration: none;
+    color: midnightblue;
+    background-color: rgba(70, 130, 180, 0.12);
+    border: 1px solid rgba(70, 130, 180, 0.3);
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+nav.role-nav a:hover {
+    background-color: rgba(65, 105, 225, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(65, 105, 225, 0.15);
+}
+
+nav.role-nav a.active {
+    background-color: royalblue;
+    color: white;
+    border-color: royalblue;
+    box-shadow: 0 4px 14px rgba(65, 105, 225, 0.3);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: darkslategray;
+    margin-bottom: 6px;
+    transition: color 0.25s ease;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 0.95rem;
+    color: darkslategray;
+    background-color: white;
+    border: 1.5px solid rgba(112, 128, 144, 0.4);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: royalblue;
+    box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.18);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+input.input-valid,
+select.input-valid {
+    border-color: seagreen;
+    background-color: rgba(46, 139, 87, 0.04);
+}
+
+input.input-invalid,
+select.input-invalid {
+    border-color: crimson;
+    background-color: rgba(220, 20, 60, 0.04);
+}
+
+button {
+    cursor: pointer;
+    padding: 11px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: royalblue;
+    color: white;
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+button:hover:not(:disabled) {
+    background-color: midnightblue;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(25, 25, 112, 0.22);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: slategray;
+}
+
+button.secondary-button {
+    background-color: rgba(70, 130, 180, 0.14);
+    color: midnightblue;
+    border-color: rgba(70, 130, 180, 0.35);
+    margin-right: 8px;
+    margin-top: 6px;
+}
+
+button.secondary-button:hover:not(:disabled) {
+    background-color: rgba(65, 105, 225, 0.24);
+    color: midnightblue;
+    box-shadow: 0 4px 10px rgba(65, 105, 225, 0.15);
+}
+
+button.secondary-button.active-mode {
+    background-color: seagreen;
+    color: white;
+    border-color: seagreen;
+}
+
+small.field-feedback {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.82rem;
+    color: slategray;
+    min-height: 1.2em;
+    transition: color 0.25s ease;
+}
+
+small.field-feedback.feedback-valid {
+    color: seagreen;
+    font-weight: 600;
+}
+
+small.field-feedback.feedback-invalid {
+    color: crimson;
+    font-weight: 600;
+}
+
+output.status-banner {
+    display: block;
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background-color: rgba(70, 130, 180, 0.12);
+    color: midnightblue;
+    border: 1px solid rgba(70, 130, 180, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+output.status-banner.status-success {
+    background-color: rgba(46, 139, 87, 0.14);
+    color: seagreen;
+    border-color: rgba(46, 139, 87, 0.4);
+}
+
+output.status-banner.status-error {
+    background-color: rgba(220, 20, 60, 0.12);
+    color: crimson;
+    border-color: rgba(220, 20, 60, 0.38);
+}
+
+output.status-banner.status-warning {
+    background-color: rgba(255, 140, 0, 0.14);
+    color: darkslategray;
+    border-color: rgba(255, 140, 0, 0.45);
+}
+
+ul.consistency-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+ul.consistency-list li {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: rgba(112, 128, 144, 0.1);
+    color: slategray;
+    border-left: 3px solid slategray;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+ul.consistency-list li.rule-ok {
+    background-color: rgba(46, 139, 87, 0.12);
+    color: seagreen;
+    border-left-color: seagreen;
+    font-weight: 600;
+}
+
+ul.consistency-list li.rule-fail {
+    background-color: rgba(220, 20, 60, 0.1);
+    color: crimson;
+    border-left-color: crimson;
+}
+
+section.forms-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 820px) {
+    section.forms-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
